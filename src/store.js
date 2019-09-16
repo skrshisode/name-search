@@ -28,8 +28,6 @@ Store.prototype.init = function(filePath) {
     var store = this;
 
     rl.on('line', function(line) {
-        //console.log(line);
-
         if (line_no === 0) {
             headers = line.split(',');
         } else {
@@ -55,7 +53,6 @@ Store.prototype.init = function(filePath) {
 
 Store.prototype.search = function(word) {
     var data = this.data.searchWord(word);
-    console.log("result", data);
     return data;
 }
 

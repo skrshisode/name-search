@@ -14,15 +14,10 @@ function TrieNode(character, isEndOfWord, name) {
 }
 
 TrieNode.prototype.getNode = function(character) {
-    console.log(character);
-    console.log("children- ",this.children);
-
     return this.children.get(character);
 }
 
 TrieNode.prototype.hasChild = function(currentNode) {
-    console.log("children- ",currentNode.children);
-
     return 0 < currentNode.children.size;
 }
 

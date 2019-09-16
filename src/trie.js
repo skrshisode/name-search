@@ -18,7 +18,6 @@ Trie.prototype.addWord = function(word, data) {
 }
 
 Trie.prototype.searchWord = function(word) {
-    console.log("Searching...", word)
     var lastCharacterNode = this.getLastCharacterNode(word);
 
     if (!!lastCharacterNode) {
@@ -35,8 +34,6 @@ Trie.prototype.getLastCharacterNode = function(word) {
 
     for (var i = 0; i < characters.length; i++) {
         currentNode = currentNode.getNode(characters[i]);
-        console.log(characters[i], currentNode);
-
         if (!currentNode) {
             return null;
         }
@@ -50,23 +47,17 @@ Trie.prototype.getLastCharacterNode = function(word) {
 Trie.prototype.getChildrenData = function(currentNode) {
 
     var results = [];
-
-    //console.log("=============>", currentNode.character, currentNode.isEndOfWord, currentNode.data, !!currentNode.hasChild(currentNode));
-
     if (currentNode.isEndOfWord) {
         results = results.concat(currentNode.data);
-        //console.log("-----1---->",results)
     }
 
     if (currentNode.hasChild(currentNode)) {
         var self = this;
-        currentNode.children.forEach(function(value, key){
-            console.log("char- ", key)
+        currentNode.children.forEach(function(value, key) {
             var newResults = self.getChildrenData(value);
             results = results.concat(newResults);
         })
     }
-    //console.log("-----2---->", results);
     return results;
 }
 
