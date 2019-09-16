@@ -9,7 +9,7 @@ router.get('/', function(req, res, next) {
 
 router.get('/search', function(req, res, next) {
 	var q = req.query.q;
-	var data = req.app.locals.db.search(q);
+	var data = req.app.locals.db.search(q.toLowerCase());
 
     var response = {
         "q" : q,

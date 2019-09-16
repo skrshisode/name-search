@@ -11,9 +11,9 @@ Store.prototype.insert = function(name) {
     var middleName = name['middleName'];
     var surname = name['surname'];
 
-    this.data.addWord(givenName, name);
-    this.data.addWord(middleName, name);
-    this.data.addWord(surname, name);
+    this.data.addWord(givenName.toLowerCase(), name);
+    this.data.addWord(middleName.toLowerCase(), name);
+    this.data.addWord(surname.toLowerCase(), name);
 }
 
 Store.prototype.init = function(filePath) {
