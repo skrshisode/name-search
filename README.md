@@ -1,12 +1,12 @@
 # Instant Search
 
-Endpoint: `http://localhost:3000/api/search?q=[SEARCH_TERM]`
-
 ## Setup
 
 - Keep data.csv file in project's root directory
 - Run `npm install` in project's root directory for dependencies
 - Run `npm start` to start the service
+- UI: `http://localhost:3000/`
+- API: `http://localhost:3000/api/search?q=[SEARCH_TERM]`
 
 ## Details
 

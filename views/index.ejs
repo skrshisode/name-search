@@ -1,11 +1,38 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title><%= title %></title>
+
+<head>
+    <title>
+        <%= title %>
+    </title>
     <link rel='stylesheet' href='/stylesheets/style.css' />
-  </head>
-  <body>
-    <h1><%= title %></h1>
-    <p>Welcome to <%= title %></p>
-  </body>
+    <script type="text/javascript">
+    function httpGet(theUrl) {
+        var xmlHttp = new XMLHttpRequest();
+        xmlHttp.open("GET", theUrl, false);
+        xmlHttp.send(null);
+        return xmlHttp.responseText;
+    }
+
+    function renderResults(argument) {
+        var q = document.forms["qform"]["q"].value;
+        var r = httpGet('http://localhost:3000/api/search?q=' + q);
+        document.getElementById("results").innerHTML = r;
+    }
+    </script>
+</head>
+
+<body>
+    <h1>
+        <%= title %>
+    </h1>
+    <p>Welcome to
+        <%= title %>
+    </p>
+    <form name="qform" onsubmit="renderResults(); return false;">
+        Enter Query: <input type="text" name="q"> <input type="submit" value="Submit">
+    </form>
+    <p id='results'> </p>
+</body>
+
 </html>
